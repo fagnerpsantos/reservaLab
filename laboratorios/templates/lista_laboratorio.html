@@ -1,0 +1,77 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+</head><body>
+
+	    <div class="navbar navbar-default navbar-static-top">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="#">
+	                <span>ReservaLab</span>
+	                </a>
+	            </div>
+	            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li ><a href="index">Home</a></li>
+	                    <li class="active"><a href="lista_laboratorio">Laboratórios</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-header">
+                        <h1>Lista de Laboratórios</h1></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+    <div class="container">
+    <div class="row">
+                <div class="col-lg-12">
+                <div class="ibox float-e-margins">                    
+                    <div class="ibox-content">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bloco</th>
+                                <th>Sala</th> 
+                                <th>Status</th>                               
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for laboratorio in laboratorios %}
+                            <tr>
+                                <td>{{laboratorio.id}}</td>
+                                <td>{{laboratorio.bloco}}</td>
+                                <td>{{laboratorio.sala}}</td>
+								<td><a href="#"><i class="fa fa-check text-navy"></i></a></td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
