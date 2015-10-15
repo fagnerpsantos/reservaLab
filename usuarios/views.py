@@ -3,7 +3,6 @@ from django.views.generic import CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
 
 from usuarios.models import Inscricao
-from usuarios.forms import InscricaoForm
 
 def home(request):
         return render(request, 'index.html')
