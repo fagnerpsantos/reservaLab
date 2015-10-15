@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, url
-from views import RegistrarUsuarioView
+from usuarios.views import *
 
 urlpatterns = patterns('',
-	url(r'^registrar/$', RegistrarUsuarioView.as_view(), name="registrar")
+	url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
+	url(r'^lista/$', Lista.as_view(), name='lista'),
+
 )

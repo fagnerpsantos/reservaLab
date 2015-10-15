@@ -1,11 +1,19 @@
 from django.shortcuts import render
-from django.views.generic.base import View 
+from django.views.generic import CreateView, ListView
+from django.core.urlresolvers import reverse_lazy
 
-class RegistrarUsuarioView(View):
+from usuarios.models import Inscricao
+from usuarios.forms import InscricaoForm
 
-	template_name='registrar.html'
-	def get(self, request):
-		return render(request, self.template_name)
+def home(request):
+        return render(request, 'index.html')
 
-	def post(self, request):
-		return render(request, self.template_name)
+class Criar(CreateView):
+        template_name = 'registrar.html'
+        model = Inscricao
+        success_url = reverse_lazy('listar')
+
+class Lista(ListView):
+        template_name = 'lista.html'
+        model = Inscricao
+        context_object = 'nome'
