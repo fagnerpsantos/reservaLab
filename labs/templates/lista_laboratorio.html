@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block corpo %}
-  <div class="navbar navbar-default navbar-static-top">
+  <div class="navbar navbar-inverse navbar-fixed-top">
 	        <div class="container">
 	            <div class="navbar-header">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -40,7 +40,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-content">
 
-                        <table class="table">
+                        <table class="table table-striped">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -57,7 +57,7 @@
                                 <td>{{laboratorio.bloco}}</td>
                                 <td>{{laboratorio.sala}}</td>
                                 <td>{{laboratorio.nome}}</td>
-								<td><a href="#"><i class="fa fa-check text-navy"></i></a></td></tr>
+								<td><a href="login"><i class="fa fa-check text-navy"></i></a></td></tr>
                             {% endfor %}
                             </tbody>
                         </table>

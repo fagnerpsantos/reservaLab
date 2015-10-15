@@ -3,27 +3,40 @@
 <html lang="pt-br">
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="{% static "styles/bootstrap.css" %}">
-	<link rel="stylesheet" type="text/css" href="{% static "styles/signin.css" %}">
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container">
+
+ <div class="cover">
+
+      <div class="cover-image" style="background-image: url(http://ironsummitmedia.github.io/startbootstrap-landing-page/img/intro-bg.jpg);"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            	<div class="container">
 	<form class="form-signin" action="/cadastro/" method="post">
 	    {% csrf_token %}
-		<h2 class="form-signin-heading">Login</h2>
+
+            <h1 class="text-inverse">Login</h1><br><br>
         	<input id="id_matricula" name="matricula" type="text"
 			class="form-control" placeholder="Matricula"
-			required>
+			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br>
 
 			<input id="id_senha" name="senha" type="password"
 			class="form-control" placeholder="Senha"
-			required>
+			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br><br>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-
-
+			<button class="btn btn-lg btn-primary btn-block" type="submit" style="heigth: 250px; width: 250px; margin: 0 auto;">Entrar</button>
 	</form>
 	</div>
-
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>
