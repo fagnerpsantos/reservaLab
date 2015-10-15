@@ -17,3 +17,6 @@ class Lista(ListView):
         template_name = 'lista.html'
         model = Inscricao
         context_object = 'nome'
+
+def login(request):
+    return render(request, 'login.html')

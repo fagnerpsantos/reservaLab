@@ -12,6 +12,8 @@ urlpatterns = patterns('',
 	url(r'^laboratorios/(?P<laboratorio_id>\d+)$', views.laboratorio, name='laboratorio'),
     url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
     url(r'^lista/$', Lista.as_view(), name='listar'),
+    url(r'^login/$', login, name='login'),
+
 
 
 
