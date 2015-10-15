@@ -1,0 +1,33 @@
+{% extends 'tbase.html' %}
+{% load staticfiles %}
+
+{% block cabecalho %}
+    <title>Cadastro de Laboratório</title>
+	<link rel="stylesheet" type="text/css" href="{% static "styles/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "styles/signin.css" %}">
+
+{% endblock %}
+
+{% block corpo %}
+	<div class="container">
+        <br />
+	<form class="form-signin" action="" method="POST">
+	    {% csrf_token %}
+        <h2 class="form-signin-heading" style="text-align: center;">Cadastrar Laboratório</h2>
+        <br />
+			<input id="id_bloco" name="bloco" type="text"
+			class="form-control" placeholder="Bloco"
+			required>
+
+        	<input id="id_sala" name="sala" type="text"
+			class="form-control" placeholder="Sala"
+			required>
+
+			<input id="id_nome" name="nome" type="text"
+			class="form-control" placeholder="Nome"
+			required>
+			<hr/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
+	</form>
+	</div>
+{% endblock %}

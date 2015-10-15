@@ -1,13 +1,8 @@
-<html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-</head><body>
+{% extends 'tbase.html' %}
+{% load staticfiles %}
 
-	    <div class="navbar navbar-default navbar-static-top">
+{% block corpo %}
+  <div class="navbar navbar-default navbar-static-top">
 	        <div class="container">
 	            <div class="navbar-header">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
@@ -42,7 +37,7 @@
     <div class="container">
     <div class="row">
                 <div class="col-lg-12">
-                <div class="ibox float-e-margins">                    
+                <div class="ibox float-e-margins">
                     <div class="ibox-content">
 
                         <table class="table">
@@ -50,8 +45,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Bloco</th>
-                                <th>Sala</th> 
-                                <th>Status</th>                               
+                                <th>Sala</th>
+                                <th> Nome </th>
+                                <th>Status</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -60,6 +56,7 @@
                                 <td>{{laboratorio.id}}</td>
                                 <td>{{laboratorio.bloco}}</td>
                                 <td>{{laboratorio.sala}}</td>
+                                <td>{{laboratorio.nome}}</td>
 								<td><a href="#"><i class="fa fa-check text-navy"></i></a></td></tr>
                             {% endfor %}
                             </tbody>
@@ -73,5 +70,4 @@
 </div>
 </div>
 
-</body>
-</html>
+{% endblock %}
