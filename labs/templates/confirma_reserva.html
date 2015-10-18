@@ -1,0 +1,17 @@
+{% extends 'tbase.html' %}
+{% load staticfiles %}
+
+{% block cabecalho %}
+
+    <title>Cadastro de Laboratório</title>
+    	<link rel="stylesheet" type="text/css" href="{% static "styles/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "styles/signin.css" %}">
+{% endblock %}
+
+{% block corpo %}
+
+<h2 class="form-signin-heading" style="text-align: center;">Reserva com sucesso</h2>
+<a href="/lista_laboratorio"><h3 class="form-signin-heading" style="text-align: center;">Voltar</h3></a>
+
+
+{% endblock %}

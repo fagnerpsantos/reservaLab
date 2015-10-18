@@ -1,0 +1,33 @@
+{% extends 'tbase.html' %}
+{% load staticfiles %}
+
+{% block cabecalho %}
+    <title>Reserva de Laboratório</title>
+	<link rel="stylesheet" type="text/css" href="{% static "styles/bootstrap.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "styles/signin.css" %}">
+
+{% endblock %}
+
+{% block corpo %}
+	<div class="container">
+        <br />
+       	<form class="form-signin" action="{% url 'reserva' laboratorio.id %}" method="POST">
+	    {% csrf_token %}
+        <h2 class="form-signin-heading" style="text-align: center;">Reservar Laboratório</h2>
+        <br />
+			<input id="id_dataEntrada" name="dataEntrada" type="text"
+			class="form-control" placeholder="Data de Entrada"
+			>
+
+        	<input id="id_horaEntrada" name="horaEntrada" type="text"
+			class="form-control" placeholder="Hora de Entrada"
+			>
+
+			<input id="id_horaSaida" name="horaSaida" type="text"
+			class="form-control" placeholder="Hora de Saida"
+			>
+			<hr/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Reservar</button>
+	</form>
+	</div>
+{% endblock %}
