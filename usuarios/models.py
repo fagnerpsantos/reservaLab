@@ -16,8 +16,10 @@ class Inscricao(models.Model):
                 return self.nome
 
         def reserva_laboratorio(self, laboratorio, dataEntrada, horaEntrada, horaSaida):
-            reserva = Reserva(solicitante=self, laboratorio=laboratorio, dataEntrada = dataEntrada, horaEntrada = horaEntrada, horaSaida = horaSaida, disponivel = False)
+            reserva = Reserva(solicitante=self, laboratorio=laboratorio, dataEntrada = dataEntrada, horaEntrada = horaEntrada, horaSaida = horaSaida)
             reserva.save()
+            laboratorio.disponivel = False
+            laboratorio.save()
 
 class Reserva(models.Model):
         solicitante = models.ForeignKey(Inscricao)
@@ -25,4 +27,3 @@ class Reserva(models.Model):
         dataEntrada = models.CharField(max_length=10)
         horaEntrada = models.CharField(max_length=10)
         horaSaida = models.CharField(max_length=10)
-        disponivel = models.BooleanField(default=True)
