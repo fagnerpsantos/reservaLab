@@ -15,6 +15,9 @@ urlpatterns = patterns('',
     url(r'^lista/$', Lista.as_view(), name='listar'),
     url(r'^login/$', login, name='login'),
     url(r'^cadastro/laboratorio$', 'labs.views.cadastraLab'),
+    url(r'^login/auth$', 'usuarios.views.authView'),
+    url(r'^login/invalid$', 'usuarios.views.authView'),
     url(r'^reservar/(?P<laboratorio_id>\d+)', 'labs.views.reservar', name='reservar'),
     url(r'^lista_laboratorio/(?P<laboratorio_id>\d+)/reserva$', 'usuarios.views.reserva_laboratorio', name='reserva'),
+
 )

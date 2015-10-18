@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from django.shortcuts import render_to_response
 from django.views.generic import CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
+from django.contrib import auth
 from labs.models import Laboratorio
-
 from usuarios.models import Inscricao
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.context_processors import csrf
+
 
 def home(request):
         return render(request, 'index.html')
@@ -19,7 +23,22 @@ class Lista(ListView):
         context_object = 'nome'
 
 def login(request):
-    return render(request, 'login.html')
+    c = {}
+    c.update(csrf(request))
+    return render(request, 'login.html', c)
+
+
+
+def authView(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    user = auth.authenticate(username=username, password=password)
+
+    if user is not None:
+        auth.login(request, user)
+        return HttpResponseRedirect('/lista_laboratorio')
+    else:
+        return render(request, 'invalid.html')
 
 def get_perfil_logado(request):
     return Inscricao.objects.get(id=1)
@@ -32,3 +51,4 @@ def reserva_laboratorio(request, laboratorio_id):
     usuario_logado = get_perfil_logado(request)
     usuario_logado.reserva_laboratorio(laboratorio, dataEntrada, horaEntrada, horaSaida)
     return render(request, 'confirma_reserva.html')
+
