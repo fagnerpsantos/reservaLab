@@ -18,21 +18,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            	<div class="container">
-	    <form class="form-signin" action="/" method="post">{% csrf_token %}
 
-            <h1 class="text-inverse">Login</h1><br><br>
-        	<input id="id_matricula" name="username" type="text"
-			class="form-control" placeholder="Matricula"
-			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br>
+            <h1 class="text-inverse">Login ou senha inválidos.</h1><br><br>
+              <a href="/login"><button class="btn btn-lg btn-primary btn-block" type="submit" style="heigth: 250px; width: 250px; margin: 0 auto;">Voltar</button></a>
 
-			<input id="id_senha" name="password" type="password"
-			class="form-control" placeholder="Senha"
-			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br><br>
-
-			<button class="btn btn-lg btn-primary btn-block" type="submit" style="heigth: 250px; width: 250px; margin: 0 auto;">Entrar</button>
-	</form>
-	</div>
           </div>
         </div>
       </div>

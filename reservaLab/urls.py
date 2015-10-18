@@ -14,5 +14,7 @@ urlpatterns = patterns('',
     url(r'^cadastro/usuario$', Criar.as_view(), name='cadastro'),
     url(r'^lista/$', Lista.as_view(), name='listar'),
     url(r'^login/$', login, name='login'),
-    url(r'^cadastro/laboratorio$', 'labs.views.cadastraLab')
+    url(r'^cadastro/laboratorio$', 'labs.views.cadastraLab'),
+    url(r'^login/auth$', 'usuarios.views.authView'),
+    url(r'^invalid$', 'usuarios.views.authView')
 )
