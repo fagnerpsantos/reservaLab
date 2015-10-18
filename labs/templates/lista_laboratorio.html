@@ -57,7 +57,7 @@
                                 <td>{{laboratorio.bloco}}</td>
                                 <td>{{laboratorio.sala}}</td>
                                 <td>{{laboratorio.nome}}</td>
-								<td><a href="login"><i class="fa fa-check text-navy"></i></a></td></tr>
+								<td><a href="{% url 'reservar' laboratorio.id %}"><i class="fa fa-check text-navy"></i></a></td></tr>
                             {% endfor %}
                             </tbody>
                         </table>
