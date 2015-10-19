@@ -17,29 +17,6 @@ class Criar(CreateView):
         model = Inscricao
         success_url = reverse_lazy('index')
 
-class Lista(ListView):
-        template_name = 'lista.html'
-        model = Inscricao
-        context_object = 'nome'
-
-def login(request):
-    c = {}
-    c.update(csrf(request))
-    return render(request, 'login.html', c)
-
-
-
-def authView(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(username=username, password=password)
-
-    if user is not None:
-        auth.login(request, user)
-        return HttpResponseRedirect('/lista_laboratorio')
-    else:
-        return render(request, 'invalid.html')
-
 def get_perfil_logado(request):
     return Inscricao.objects.get(matricula=login)
 
@@ -62,6 +39,7 @@ def login_usuario(request):
             return HttpResponseRedirect('/lista_laboratorio')
         else:
             return render(request, 'invalid.html')
+
 
 
 def login_pagina(request):
