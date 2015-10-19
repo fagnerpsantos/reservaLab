@@ -15,7 +15,7 @@ def home(request):
 class Criar(CreateView):
         template_name = 'registrar.html'
         model = Inscricao
-        success_url = reverse_lazy('listar')
+        success_url = reverse_lazy('index')
 
 class Lista(ListView):
         template_name = 'lista.html'
@@ -41,7 +41,7 @@ def authView(request):
         return render(request, 'invalid.html')
 
 def get_perfil_logado(request):
-    return Inscricao.objects.get(id=1)
+    return Inscricao.objects.get(matricula=login)
 
 def reserva_laboratorio(request, laboratorio_id):
     dataEntrada = request.POST.get('dataEntrada')
@@ -51,4 +51,19 @@ def reserva_laboratorio(request, laboratorio_id):
     usuario_logado = get_perfil_logado(request)
     usuario_logado.reserva_laboratorio(laboratorio, dataEntrada, horaEntrada, horaSaida)
     return render(request, 'confirma_reserva.html')
+
+def login_usuario(request):
+    login = request.POST.get('matricula')
+    senha = request.POST.get('senha')
+
+    usuario = Inscricao.objects.get(matricula=login)
+    if(usuario):
+        if(usuario.senha  == senha):
+            return HttpResponseRedirect('/lista_laboratorio')
+        else:
+            return render(request, 'invalid.html')
+
+
+def login_pagina(request):
+    return render(request, 'login_usuario.html')
 
