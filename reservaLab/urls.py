@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^login_usuario/autenticar$', 'usuarios.views.login_usuario', name='login_usuario'),
     url(r'^reservar/(?P<laboratorio_id>\d+)', 'labs.views.reservar', name='reservar'),
     url(r'^lista_laboratorio/(?P<laboratorio_id>\d+)/reserva$', 'usuarios.views.reserva_laboratorio', name='reserva'),
+    url(r'^profile/', 'usuarios.views.historico', name='historico')
 
 )
