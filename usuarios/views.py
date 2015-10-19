@@ -37,7 +37,7 @@ def login_usuario(request):
     usuario = Inscricao.objects.get(matricula=login)
     if(usuario):
         if(usuario.senha  == senha):
-            return HttpResponseRedirect('/lista_laboratorio')
+            return HttpResponseRedirect('/profile')
         else:
             return render(request, 'invalid.html')
 
@@ -46,4 +46,4 @@ def login_pagina(request):
 
 def historico(request):
     hist = Reserva()
-    return render_to_response("profile.html", {'hist': Reserva.objects.all()})
+    return render_to_response("profile.html", {'hist': Reserva.objects.all()})   
