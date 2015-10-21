@@ -8,26 +8,37 @@
 </head>
 <body>
 	<div class="container">
-	<form class="form-signin" action="/cadastro/usuario" method="post">
+	<form class="form-signin" action="{% url 'cadastro' %}" method="post">
 	    {% csrf_token %}
 		<h2 class="form-signin-heading" style="text-align: center;">Crie seu usuário</h2>
 			<input id="id_nome" name="nome" type="text"
-			class="form-control" placeholder="Nome"
+			class="form-control" placeholder="Nome de usuário"
 			required>
+
+            <input id="id_email" name="email" type="text"
+			class="form-control" placeholder="Email"
+			required>
+			<input id="id_senha" name="senha" type="password"
+			class="form-control" placeholder="Senha"
+			required>
+
 
         	<input id="id_matricula" name="matricula" type="text"
 			class="form-control" placeholder="Matricula"
 			required>
 
-			<input id="id_senha" name="senha" type="password"
-			class="form-control" placeholder="Senha"
-			required>
-
 			<input id="id_curso" name="curso" type="text"
 			class="form-control" placeholder="Curso"
 			required>
-			<hr/>
 
+
+			<hr/>
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close">&times;</button>
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
 	
 

@@ -1,11 +1,16 @@
 from django.db import models
 from labs.models import Laboratorio
+from django.contrib.auth.models import User
 
 class Inscricao(models.Model):
         nome = models.CharField(max_length=100)
         matricula = models.CharField('matricula', max_length=11, unique=True)
-        senha = models.CharField(max_length=20)
         curso = models.CharField(max_length=30)
+        usuario = models.OneToOneField(User, related_name="perfil")
+
+
+        def email(self):
+            return self.usuario.email
 
         class Meta:
                 ordering = ['nome']

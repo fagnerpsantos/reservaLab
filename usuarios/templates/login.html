@@ -19,15 +19,15 @@
         <div class="row">
           <div class="col-md-12 text-center">
             	<div class="container">
-	    <form class="form-signin" action="{% url 'login_usuario' %}" method="POST">
+	    <form class="form-signin" action="{% url 'django.contrib.auth.views.login' %}" method="post">
             {% csrf_token %}
 
             <h1 class="text-inverse">Login</h1><br><br>
-        	<input id="id_matricula" name="matricula" type="text"
-			class="form-control" placeholder="Matricula"
+        	<input id="id_matricula" name="username" type="text"
+			class="form-control" placeholder="Nome"
 			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br>
 
-			<input id="id_senha" name="senha" type="password"
+			<input id="id_senha" name="password" type="password"
 			class="form-control" placeholder="Senha"
 			required style="heigth: 250px; width: 250px; margin: 0 auto;"><br><br>
 

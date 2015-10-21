@@ -22,7 +22,7 @@
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li ><a href="index">Home</a></li>
 	                    <li class="active"><a href="lista_laboratorio">Laboratórios</a></li>
-                        <li ><a href="/">Logout</a></li>
+                        <li ><a href="/logout/">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header">
-                        <h1>Lista de Laboratórios</h1></div>
+                        <h1>Laboratórios Disponíveis</h1></div>
                 </div>
             </div>
         </div>
@@ -56,12 +56,14 @@
                             </thead>
                             <tbody>
                             {% for laboratorio in laboratorios %}
+                                {% if laboratorio.disponivel == True %}
                             <tr>
                                 <td>{{laboratorio.id}}</td>
                                 <td>{{laboratorio.bloco}}</td>
                                 <td>{{laboratorio.sala}}</td>
                                 <td>{{laboratorio.nome}}</td>
 								<td><a href="{% url 'reservar' laboratorio.id %}"><i class="fa fa-check text-navy"></i></a></td></tr>
+                            {% endif %}
                             {% endfor %}
                             </tbody>
                         </table>
